@@ -30,7 +30,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: production-files
-          path: .output/public
+          path: ./.output/public
 
   deploy:
     name: Deploy
@@ -43,7 +43,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: production-files
-          path: .output/public
+          path: ./.output/public
 
       # - name: Create CNAME Record
       #   run: echo "bigshareblount.org" > ./dist/CNAME
