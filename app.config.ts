@@ -1,13 +1,11 @@
 import { defineConfig } from "@solidjs/start/config";
 
 export default defineConfig({
-	server: {
-		baseURL: process.env.BASE_PATH,
-		static: true,
-		prerender: {
-			failOnError: true,
-			routes: ["/"],
-			crawlLinks: true,
+	start: {
+		ssr: true,
+		server: {
+			baseURL: process.env.BASE_PATH,
+			preset: "static",
 		},
 	},
 });
