@@ -5,7 +5,7 @@ import "./app.css";
 
 export default function App() {
 	return (
-		<Router root={(props) => <Suspense>{props.children}</Suspense>}>
+		<Router base={import.meta.env.SERVER_BASE_URL} root={(props) => <Suspense>{props.children}</Suspense>}>
 			<FileRoutes />
 		</Router>
 	);
