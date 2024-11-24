@@ -1,14 +1,10 @@
-import { createEffect, createSignal, onMount } from "solid-js";
+import { createSignal, onMount } from "solid-js";
 import { Switch, SwitchThumb, SwitchTrack } from "../elements/Switch";
 import { getCookie, setCookie } from "vinxi/http";
 import { useScrollY } from "~/context/scrollYPosition";
 
 export default function Header() {
 	const scrollY = useScrollY();
-
-	createEffect(() => {
-		console.log(scrollY());
-	});
 
 	const [checked, setChecked] = createSignal(false);
 

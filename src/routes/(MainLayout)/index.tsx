@@ -95,7 +95,7 @@ export default function Home() {
 			<div
 				ref={myWorkElement}
 				id="my-work"
-				class="min-h-screen bg-neutral-100 dark:bg-neutral-900 grid place-items-center p-5 gap-5"
+				class="min-h-screen bg-neutral-100 dark:bg-neutral-900 grid place-items-center px-5 py-20 gap-5"
 			>
 				<h2 class="self-end text-2xl">Projects</h2>
 				<ul class="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-2 w-full max-w-4xl min-w-0 grid-rows-[auto_1fr_auto]">
