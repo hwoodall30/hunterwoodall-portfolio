@@ -104,12 +104,12 @@ export default function Home() {
 							<li class="h-full flex-1 grid row-span-3 grid-rows-subgrid justify-self-center w-full">
 								<Card class="grid gap-4 p-4 h-full row-span-3 grid-rows-subgrid dark:bg-neutral-950/40">
 									<h2 class="font-bold text-xl">{p.name}</h2>
-									<p class="text-sm">{p.description}</p>
+									<p class="text-xs">{p.description}</p>
 									<a
 										href={p.link}
 										target="_blank"
 										rel="noreferrer"
-										class="text-sm text-primary-500 dark:text-primary-400 hover:underline underline-offset-3"
+										class="w-fit text-sm text-primary-500 dark:text-primary-400 hover:underline underline-offset-4"
 									>
 										View Project
 									</a>
