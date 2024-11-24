@@ -19,7 +19,7 @@ export default function Header() {
 		},
 		{
 			name: "My Resume",
-			href: "https://www.linkedin.com/in/hunterwoodall/",
+			href: "/Hunter_Woodall_11|24.pdf",
 		},
 	];
 
@@ -75,7 +75,7 @@ export default function Header() {
 										href={link.href}
 										target="_blank"
 										rel="noreferrer"
-										class="text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-300 relative"
+										class="text-neutral-700 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-200 transition-colors relative"
 									>
 										{link.name}
 									</a>
