@@ -1,15 +1,18 @@
 # yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
-name: Build and Deploy
+name: Deploy to GitHub Pages
+
 on:
   push:
     branches: [main]
     tags: ["*"]
   pull_request:
   workflow_dispatch:
+
 permissions:
   contents: read
   pages: write
   id-token: write
+
 jobs:
   build:
     name: Build
@@ -52,4 +55,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: .output/public
-          branch: gh-pages
+          publish_branch: gh-pages
