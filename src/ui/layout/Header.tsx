@@ -1,4 +1,4 @@
-import { createSignal, onMount } from "solid-js";
+import { createSignal, For, onMount } from "solid-js";
 import { Switch, SwitchThumb, SwitchTrack } from "../elements/Switch";
 import { getCookie, setCookie } from "vinxi/http";
 import { useScrollY } from "~/context/scrollYPosition";
@@ -7,6 +7,21 @@ export default function Header() {
 	const scrollY = useScrollY();
 
 	const [checked, setChecked] = createSignal(false);
+
+	const links = [
+		{
+			name: "LinkedIn",
+			href: "https://www.linkedin.com/in/hunterwoodall30",
+		},
+		{
+			name: "GitHub",
+			href: "https://github.com/hwoodall30",
+		},
+		{
+			name: "My Resume",
+			href: "https://www.linkedin.com/in/hunterwoodall/",
+		},
+	];
 
 	async function getThemeCookie() {
 		"use server";
@@ -46,8 +61,31 @@ export default function Header() {
 		<header
 			class={`fixed top-0 left-0 right-0 transition-all bg-neutral-50/50 dark:bg-neutral-950/50 flex items-center justify-between border-b border-neutral-200 dark:border-neutral-900 backdrop-blur-md ${scrollY() > 50 ? "px-10 h-20 lg:px-20" : "px-5 h-14 lg:px-12"}`}
 		>
-			<h3>Hunter Woodall</h3>
-			<div>
+			<div class="flex items-center gap-2">
+				<img src="/HunterWoodallLogo.png" alt="Hunter Woodall" class="w-8 h-8 rounded-full" />
+				<h3>Hunter Woodall</h3>
+			</div>
+			<div class="flex items-center gap-5">
+				<ul class="flex items-center gap-2 text-xs">
+					<For each={links}>
+						{(link, i) => (
+							<>
+								<li>
+									<a
+										href={link.href}
+										target="_blank"
+										rel="noreferrer"
+										class="text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-300 relative"
+									>
+										{link.name}
+									</a>
+								</li>
+								{i() !== links?.length - 1 ? " / " : null}
+							</>
+						)}
+					</For>
+				</ul>
+
 				<Switch checked={checked} onValueChange={onValueChange} size="md">
 					<SwitchTrack>
 						<SwitchThumb class={`p-0.5 ${checked() ? "text-neutral-950" : "text-yellow-300"}`}>
