@@ -112,6 +112,7 @@ type MobileMenuProps = {
 	}>;
 };
 function MobileMenu(props: MobileMenuProps) {
+	const themeInfo = useTheme();
 	const [animationOpen, setAnimationOpen] = createSignal(props.open());
 
 	function handleClick() {
@@ -132,9 +133,13 @@ function MobileMenu(props: MobileMenuProps) {
 		<>
 			<button onClick={handleClick} type="button">
 				<div class={`${styles["wrapper-menu"]} ${props.open() ? styles.open : ""}`}>
-					<div class={`${styles["line-menu"]}  ${styles.half}  ${styles.start}`} />
-					<div class={styles["line-menu"]} />
-					<div class={`${styles["line-menu"]}  ${styles.half}  ${styles.end}`} />
+					<div
+						class={`${styles["line-menu"]}  ${styles.half}  ${styles.start} ${themeInfo().isDark ? "bg-neutral-300" : "bg-neutral-700"}`}
+					/>
+					<div class={`${styles["line-menu"]} ${themeInfo().isDark ? "bg-neutral-300" : "bg-neutral-700"}`} />
+					<div
+						class={`${styles["line-menu"]}  ${styles.half}  ${styles.end} ${themeInfo().isDark ? "bg-neutral-300" : "bg-neutral-700"}`}
+					/>
 				</div>
 			</button>
 
